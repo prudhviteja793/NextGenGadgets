@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Widget</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 15px; 
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        label { 
+            display: block; 
+            margin-top: 10px; 
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: content-box;
+        }
+        .security-info {
+            font-size: 0.8em;
+            color: #555;
+            margin-top: 15px;
+            border-top: 1px dashed #ccc;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="secure-payment-form">
+        <label for="cardNumberIframe">Card Number</label>
+        <input type="text" id="cardNumberIframe" placeholder="XXXX XXXX XXXX XXXX" required>
+
+        <div style="display: flex; gap: 10px;">
+            <div style="flex: 1;">
+                <label for="expiryIframe">Expiry (MM/YY)</label>
+                <input type="text" id="expiryIframe" placeholder="MM/YY" required>
+            </div>
+            <div style="flex: 1;">
+                <label for="cvvIframe">CVV</label>
+                <input type="text" id="cvvIframe" placeholder="XXX" required>
+            </div>
+        </div>
+
+        <div class="security-info">
+            <p>This is a simulated secure payment iframe. No real transaction takes place.</p>
+        </div>
+    </form>
+</body>
+</html>
