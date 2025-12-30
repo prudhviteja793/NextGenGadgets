@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Cart - NextGenGadgets</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="cart-page">
+    <header id="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link"><h1 class="logo">NextGenGadgets</h1></a>
+        </div>
+        <p id="current-date-time" class="datetime-banner">Loading Date & Time...</p>
+    </header>
+
+    <main class="content-container" style="min-height: 70vh;">
+        <h2 class="section-title">Your Shopping Cart</h2>
+
+        <div class="cart-content-wrapper">
+            <div class="cart-items-section">
+                <h3>Items in Your Cart (Drag to Reorder)</h3>
+                
+                <table id="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="draggable-cart-list">
+                        </tbody>
+                </table>
+
+                <div id="cart-pagination" class="pagination-controls">
+                    <a href="#" class="page-link" data-page="1">« Previous</a>
+                    <a href="#" class="page-link active" data-page="1">1</a>
+                    <a href="#" class="page-link" data-page="2">2</a>
+                    <a href="#" class="page-link" data-page="3">3</a>
+                    <a href="#" class="page-link" data-page="2">Next »</a>
+                </div>
+            </div>
+
+            <div class="cart-summary-section">
+                <h3>Order Summary</h3>
+                <div class="summary-line">
+                    <span>Subtotal (<span id="summary-item-count">0</span> items):</span>
+                    <span id="summary-subtotal">$0.00</span>
+                </div>
+                <div class="summary-line">
+                    <span>Shipping:</span>
+                    <span id="summary-shipping">FREE</span>
+                </div>
+                <hr>
+                <div class="summary-line total-line">
+                    <strong>Estimated Total:</strong>
+                    <strong id="summary-total">$0.00</strong>
+                </div>
+                
+                <a href="checkout.html" class="cta-button checkout-button">Proceed to Checkout</a>
+                <p class="continue-shopping-link"><a href="index.html">← Continue Shopping</a></p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer id="main-footer" style="margin-top: 50px;">
+        <div class="footer-grid content-container">
+            <div class="footer-col">
+                <h4 class="logo">NextGenGadgets</h4>
+                <p>NextGenGadgets is your premier online destination for cutting-edge technology. Discover innovation, reliability, and style all in one place.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#" class="category-link" data-category="all">Products</a></li>
+                    <li><a href="#categories-section">Categories</a></li>
+                    <li><a href="#about-us-section">About Us</a></li> 
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#faq-section">FAQs</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+                <div class="contact-details">
+                    <h5>Contact Us</h5>
+                    <p>Email: <a href="mailto:nextgengadgets@gmail.com">nextgengadgets@gmail.com</a></p>
+                    <p>Phone: +1 514-123-4567</p>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Stay Connected</h4>
+                <p>Follow us on social media for the latest updates and offers.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.twitter.com" target="_blank" title="Twitter"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 NextGenGadgets. Developed by **Prudhvi Teja Reddy Kandula**. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
