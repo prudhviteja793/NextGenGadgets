@@ -1,0 +1,4 @@
+email,password,expected
+test@valid.com,Pass123!,Successful
+wrong@user.com,wrong,Error
+admin@gadgets.com,Admin123!,Successful

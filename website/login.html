@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,4 +122,129 @@
 
     <script src="scripts/script.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - NextGenGadgets</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .auth-container {
+            max-width: 400px;
+            margin: 80px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .auth-container h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+        .auth-container label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .auth-container input[type="text"],
+        .auth-container input[type="password"],
+        .auth-container input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .auth-container button {
+            width: 100%;
+            margin-top: 25px;
+        }
+        .forgot-link, .register-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body class="login-page">
+    <header id="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link"><h1 class="logo">NextGenGadgets</h1></a>
+        </div>
+        <p id="current-date-time" class="datetime-banner">Loading Date & Time...</p>
+    </header>
+
+    <main>
+        <div class="auth-container">
+            <h2>User Login</h2>
+            <form id="login-form">
+                <label for="login-email">Email or Username</label>
+                <input type="text" id="login-email" required>
+                
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" required>
+                
+                <button type="submit" class="cta-button">Log In</button>
+            </form>
+            
+            <a href="#" class="forgot-link" onclick="alert('Simulating password reset email sent to your address.')">Forgot Password?</a>
+            <hr>
+            <a href="register.html" class="register-link">Don't have an account? Register Here.</a>
+        </div>
+    </main>
+
+    <footer id="main-footer" style="margin-top: 50px;">
+        <div class="footer-grid content-container">
+            <div class="footer-col">
+                <h4 class="logo">NextGenGadgets</h4>
+                <p>NextGenGadgets is your premier online destination for cutting-edge technology. Discover innovation, reliability, and style all in one place.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#" class="category-link" data-category="all">Products</a></li>
+                    <li><a href="#categories-section">Categories</a></li>
+                    <li><a href="#about-us-section">About Us</a></li> 
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#faq-section">FAQs</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+                <div class="contact-details">
+                    <h5>Contact Us</h5>
+                    <p>Email: <a href="mailto:nextgengadgets@gmail.com">nextgengadgets@gmail.com</a></p>
+                    <p>Phone: +1 514-123-4567</p>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Stay Connected</h4>
+                <p>Follow us on social media for the latest updates and offers.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.twitter.com" target="_blank" title="Twitter"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 NextGenGadgets. Developed by **Prudhvi Teja Reddy Kandula**. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+</body>
+>>>>>>> 6c46170 (Syncing local files with repository)
 </html>

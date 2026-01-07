@@ -128,4 +128,8 @@ def test_generate_excel_report():
 
     worksheet.conditional_format('H2:H31', {'type': 'cell', 'criteria': '==', 'value': '"PASS"', 'format': green})
     worksheet.set_column('A:H', 25)
+<<<<<<< HEAD
     writer.close()
+=======
+    writer.close()
+>>>>>>> 6c46170 (Syncing local files with repository)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -130,4 +131,138 @@
     </footer>
     <script src="scripts/script.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - NextGenGadgets</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="checkout-page">
+    <header id="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link"><h1 class="logo">NextGenGadgets</h1></a>
+        </div>
+        <p id="current-date-time" class="datetime-banner">Loading Date & Time...</p>
+    </header>
+
+    <main class="content-container" style="min-height: 70vh;">
+        <h2 class="section-title">Secure Checkout</h2>
+
+        <div class="checkout-steps">
+            <div id="step-1" class="step active" data-step="1">
+                <h3>1. Shipping Information</h3>
+                <form id="shipping-form" onsubmit="return false;">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                    
+                    <label for="country">Country</label>
+                    <select id="country" name="country" required>
+                        <option value="">Select Country...</option>
+                        <option value="USA">United States</option>
+                        <option value="CAN">Canada</option>
+                        <option value="UK">United Kingdom</option>
+                    </select>
+
+                    <label for="stateProvince">State/Province</label>
+                    <select id="stateProvince" name="stateProvince" required disabled>
+                        <option value="">Select State/Province...</option>
+                    </select>
+                    <label for="address">Street Address</label>
+                    <input type="text" id="address" name="address" required>
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" required>
+                    <label for="zip">Zip Code</label>
+                    <input type="text" id="zip" name="zip" required>
+                    
+                    <div class="step-navigation">
+                        <button type="button" class="next-step-btn" data-target-step="2">Continue to Payment</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="step-2" class="step" data-step="2">
+                <h3>2. Payment Details</h3>
+                <form id="payment-form" onsubmit="return false;">
+                    
+                    <p>For enhanced security, card processing is handled via our embedded third-party widget below.</p>
+
+                    <div class="iframe-container">
+                        <iframe id="payment-iframe" src="payment_widget_mock.html" frameborder="0" title="Secure Payment Widget" width="100%" height="250"></iframe>
+                    </div>
+                    <label for="paymentName">Name on Card (For review only)</label>
+                    <input type="text" id="paymentName" name="paymentName" required>
+
+                    <div class="step-navigation">
+                        <button type="button" class="prev-step-btn" data-target-step="1">Back to Shipping</button>
+                        <button type="button" class="next-step-btn" data-target-step="3">Review Order</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="step-3" class="step" data-step="3">
+                <h3>3. Review and Place Order</h3>
+                <div id="review-summary">
+                    <p><strong>Total Items:</strong> <span id="review-item-count">0</span></p>
+                    <p><strong>Total Amount:</strong> <span id="review-total-amount">$0.00</span></p>
+                    <p>Shipping to: <span id="review-address">[Address will populate here]</span></p>
+                    <p>Payment: <span id="review-payment">Card processed securely via widget.</span></p>
+                </div>
+                <div class="step-navigation">
+                    <button type="button" class="prev-step-btn" data-target-step="2">Back to Payment</button>
+                    <button type="submit" id="place-order-btn" class="cta-button">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="main-footer" style="margin-top: 50px;">
+        <div class="footer-grid content-container">
+            <div class="footer-col">
+                <h4 class="logo">NextGenGadgets</h4>
+                <p>NextGenGadgets is your premier online destination for cutting-edge technology. Discover innovation, reliability, and style all in one place.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#" class="category-link" data-category="all">Products</a></li>
+                    <li><a href="#categories-section">Categories</a></li>
+                    <li><a href="#about-us-section">About Us</a></li> 
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#faq-section">FAQs</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+                <div class="contact-details">
+                    <h5>Contact Us</h5>
+                    <p>Email: <a href="mailto:nextgengadgets@gmail.com">nextgengadgets@gmail.com</a></p>
+                    <p>Phone: +1 514-123-4567</p>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Stay Connected</h4>
+                <p>Follow us on social media for the latest updates and offers.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.twitter.com" target="_blank" title="Twitter"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 NextGenGadgets. Developed by **Prudhvi Teja Reddy Kandula**. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="scripts/script.js"></script>
+</body>
+>>>>>>> 6c46170 (Syncing local files with repository)
 </html>
