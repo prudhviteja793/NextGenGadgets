@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K20_Login_Email_Input</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>81ae7422-5d60-40db-85fc-bdf7b8b19396</testCaseGuid>
+</TestCaseEntity>

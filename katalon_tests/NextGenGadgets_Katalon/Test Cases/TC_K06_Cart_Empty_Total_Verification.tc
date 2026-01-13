@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K06_Cart_Empty_Total_Verification</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>5b34abf6-7c1a-4f87-bb6b-f03a696b50ce</testCaseGuid>
+</TestCaseEntity>

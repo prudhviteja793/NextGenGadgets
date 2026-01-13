@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K12_Checkout_Page_Load</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>4c43bcb4-6953-4dbc-bd65-1e822f7cd268</testCaseGuid>
+</TestCaseEntity>

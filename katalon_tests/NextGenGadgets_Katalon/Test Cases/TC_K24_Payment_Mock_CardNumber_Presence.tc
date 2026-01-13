@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K24_Payment_Mock_CardNumber_Presence</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>1655a496-b055-4dbb-9d07-599001a89e63</testCaseGuid>
+</TestCaseEntity>

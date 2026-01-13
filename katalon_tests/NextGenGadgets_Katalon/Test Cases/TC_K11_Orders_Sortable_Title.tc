@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K11_Orders_Sortable_Title</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>af716f8d-b3d8-4081-844d-417bbacd5fe5</testCaseGuid>
+</TestCaseEntity>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K17_Cart_Subtotal_Display</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>ec54e970-3b14-4bdf-be52-97b4389c09b5</testCaseGuid>
+</TestCaseEntity>

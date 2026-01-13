@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K19_Orders_Action_Links</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>d0beaac5-e785-458e-809a-8ce4ce92d8bb</testCaseGuid>
+</TestCaseEntity>

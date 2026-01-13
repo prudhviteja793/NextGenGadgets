@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>a_View Details</name>
+   <tag></tag>
+   <elementGuidId>d7701453-8d6b-4d68-96c3-638fcb2cbc00</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>td:nth-of-type(6) > a</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//table[@id='order-history-table']/tbody/tr/td[6]/a</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>a</value>
+      <webElementGuid>f19666e2-9fb3-4d4a-9df0-fa4f65b04cc3</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>href</name>
+      <type>Main</type>
+      <value>#</value>
+      <webElementGuid>3f4c9a5e-70fc-4752-b4ae-78123e06c059</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>View Details</value>
+      <webElementGuid>20093cef-374b-49f9-945b-9055dafce15d</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[1]/body[@class=&quot;orders-page&quot;]/main[@class=&quot;content-container&quot;]/div[@class=&quot;table-responsive&quot;]/table[@id=&quot;order-history-table&quot;]/tbody[1]/tr[1]/td[6]/a[1]</value>
+      <webElementGuid>9a937d01-d1eb-4c6c-a33c-561fdb5b0493</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//table[@id='order-history-table']/tbody/tr/td[6]/a</value>
+      <webElementGuid>33d142f8-d1fe-4480-ba4a-a2b5771fc3be</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:link</name>
+      <type>Main</type>
+      <value>//a[contains(text(),'View Details')]</value>
+      <webElementGuid>ffa8640a-fd8f-4733-8efd-6b0141bd08d8</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Delivered'])[1]/following::a[1]</value>
+      <webElementGuid>fc98b774-88d0-4bde-ab97-c02618892efd</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='$2,450.00'])[1]/following::a[1]</value>
+      <webElementGuid>29a2408c-a2b6-4876-8d78-18c35db79fdb</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='#10008'])[1]/preceding::a[1]</value>
+      <webElementGuid>89c47645-4cab-4eae-b592-ad3b65410b38</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Feb 15, 2025'])[1]/preceding::a[1]</value>
+      <webElementGuid>394201a0-a05b-41d7-9f41-ac43e56b3e66</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='View Details']/parent::*</value>
+      <webElementGuid>ab17d637-1c88-46b4-8312-bb35a8a5465b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:href</name>
+      <type>Main</type>
+      <value>//a[contains(@href, '#')]</value>
+      <webElementGuid>a3836778-8efe-4080-b03c-ac4d36568f66</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//td[6]/a</value>
+      <webElementGuid>bf1319f2-84e4-4df3-b9af-8894c9400b3d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//a[@href = '#' and (text() = 'View Details' or . = 'View Details')]</value>
+      <webElementGuid>1f6c895d-1747-4cf2-a1f0-cea0536136ae</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

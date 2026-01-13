@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K05_Home_Footer_ContactInfo</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>ff582a5f-cf7e-4066-b418-9f7005c75bab</testCaseGuid>
+</TestCaseEntity>

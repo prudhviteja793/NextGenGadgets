@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K07_Orders_HistoryTable_Headers</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>597da857-8b7f-4aca-8350-c07786e25029</testCaseGuid>
+</TestCaseEntity>

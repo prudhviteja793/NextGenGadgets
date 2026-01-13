@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K13_Register_Submit_Button</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>c5902eb7-a2e2-4d18-8c57-6860d282e1f3</testCaseGuid>
+</TestCaseEntity>

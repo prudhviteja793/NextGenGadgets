@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K14_MockPayment_Widget_Load</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>e587855c-18ee-4ad5-8734-15f20960b2eb</testCaseGuid>
+</TestCaseEntity>

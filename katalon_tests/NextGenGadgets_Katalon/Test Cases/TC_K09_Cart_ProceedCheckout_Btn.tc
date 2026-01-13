@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K09_Cart_ProceedCheckout_Btn</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>7fc11bc8-fd7a-4cc6-94af-6e7f89b90065</testCaseGuid>
+</TestCaseEntity>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K25_Orders_Table_Header</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>9b0fed6e-c885-4dd2-a219-ae5988ec6604</testCaseGuid>
+</TestCaseEntity>

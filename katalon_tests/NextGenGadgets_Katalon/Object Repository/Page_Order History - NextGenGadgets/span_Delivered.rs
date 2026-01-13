@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>span_Delivered</name>
+   <tag></tag>
+   <elementGuidId>2df8de3e-1531-4553-8a46-d3a883592e6a</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>span.status.delivered</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//table[@id='order-history-table']/tbody/tr/td[5]/span</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>span</value>
+      <webElementGuid>ed4ab5c0-f8fa-4863-847b-b18d4244aa7c</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>status delivered</value>
+      <webElementGuid>c6c72dce-740d-48bb-8609-e114f7e8d404</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Delivered</value>
+      <webElementGuid>1dee4bde-624d-4126-a80c-3a617d81328a</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[1]/body[@class=&quot;orders-page&quot;]/main[@class=&quot;content-container&quot;]/div[@class=&quot;table-responsive&quot;]/table[@id=&quot;order-history-table&quot;]/tbody[1]/tr[1]/td[5]/span[@class=&quot;status delivered&quot;]</value>
+      <webElementGuid>d2955fba-8534-4726-a64f-ca86460a5055</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//table[@id='order-history-table']/tbody/tr/td[5]/span</value>
+      <webElementGuid>91c3c854-1fee-4628-9665-33c656a4eb01</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='$2,450.00'])[1]/following::span[1]</value>
+      <webElementGuid>c0eac39d-ce17-44e5-beef-84ad60aae8c7</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Jan 20, 2025'])[1]/following::span[1]</value>
+      <webElementGuid>1320dc8c-a592-4839-aa62-95d467ffceb3</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='#10008'])[1]/preceding::span[1]</value>
+      <webElementGuid>83b40e64-e8ca-40fc-8be5-a4b8ed83c7eb</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Feb 15, 2025'])[1]/preceding::span[1]</value>
+      <webElementGuid>0cbe5d56-e44e-484b-ae9d-66c27693e614</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Delivered']/parent::*</value>
+      <webElementGuid>09234428-95f6-453a-a385-6b36d336024e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//span</value>
+      <webElementGuid>4ca132b8-3643-4326-9c9d-e551db07ce44</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//span[(text() = 'Delivered' or . = 'Delivered')]</value>
+      <webElementGuid>97a5b9b9-c2cb-4be8-8373-e342e52c768f</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

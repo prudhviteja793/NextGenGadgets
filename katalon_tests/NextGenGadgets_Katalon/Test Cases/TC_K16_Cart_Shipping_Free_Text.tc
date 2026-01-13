@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K16_Cart_Shipping_Free_Text</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>bbf33e3f-0ead-4a44-848d-296f5ffe37d0</testCaseGuid>
+</TestCaseEntity>

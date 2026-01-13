@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K08_Login_SubmitButton_Status</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>a0df6a79-1b5f-4ca6-b7b3-2468ccadc312</testCaseGuid>
+</TestCaseEntity>

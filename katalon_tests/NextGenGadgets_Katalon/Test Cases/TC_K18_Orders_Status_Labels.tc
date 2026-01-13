@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K18_Orders_Status_Labels</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>dcbc5928-78f8-452d-9ac9-f2d56736a02e</testCaseGuid>
+</TestCaseEntity>

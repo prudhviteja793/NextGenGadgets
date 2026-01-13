@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestSuiteEntity>
+   <description></description>
+   <name>RegistrationSuite</name>
+   <tag></tag>
+   <isRerun>false</isRerun>
+   <mailRecipient></mailRecipient>
+   <numberOfRerun>3</numberOfRerun>
+   <pageLoadTimeout>10</pageLoadTimeout>
+   <pageLoadTimeoutDefault>true</pageLoadTimeoutDefault>
+   <rerunFailedTestCasesOnly>false</rerunFailedTestCasesOnly>
+   <rerunImmediately>true</rerunImmediately>
+   <testSuiteGuid>5834f042-57de-4f3e-9a7b-653a8d040d26</testSuiteGuid>
+   <testCaseLink>
+      <guid>73a2f15a-8119-4983-a475-4b4b8abf617b</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/TC_K03_Registration_Validation</testCaseId>
+      <testDataLink>
+         <combinationType>ONE</combinationType>
+         <id>6ff2b581-8fe4-4f6b-b3b3-bb8cfbb7cb05</id>
+         <iterationEntity>
+            <iterationType>ALL</iterationType>
+            <value></value>
+         </iterationEntity>
+         <testDataId>Data Files/RegistrationData</testDataId>
+      </testDataLink>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+      <variableLink>
+         <testDataLinkId>6ff2b581-8fe4-4f6b-b3b3-bb8cfbb7cb05</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>FirstName</value>
+         <variableId>08bb92db-78d3-43de-a3a9-ac4f3530cf69</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>6ff2b581-8fe4-4f6b-b3b3-bb8cfbb7cb05</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>LastName</value>
+         <variableId>aa7db494-22b5-4783-ae4c-07de88c317f3</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>6ff2b581-8fe4-4f6b-b3b3-bb8cfbb7cb05</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>Email</value>
+         <variableId>580b188c-226b-4447-b2d9-ce2e83c5e8c4</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>6ff2b581-8fe4-4f6b-b3b3-bb8cfbb7cb05</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>Password</value>
+         <variableId>42d3ef7f-6366-45f2-b5ff-3a07651eddaf</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>6ff2b581-8fe4-4f6b-b3b3-bb8cfbb7cb05</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>ExpectedError</value>
+         <variableId>0d54f803-11af-424c-8a57-c2b50975ab12</variableId>
+      </variableLink>
+   </testCaseLink>
+</TestSuiteEntity>

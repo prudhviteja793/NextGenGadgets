@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>lbl_OrderTableHeader</name>
+   <tag></tag>
+   <elementGuidId>b4e82789-cdd5-4205-ba72-5f01741114f4</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>th</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//table/thead/tr/th[1]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>th</value>
+      <webElementGuid>58509294-8f8a-4ca3-82aa-42a2170fdd6a</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-sort-key</name>
+      <type>Main</type>
+      <value>id</value>
+      <webElementGuid>1e8b3c7b-7860-424a-978a-058c97a2ae13</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Order ID </value>
+      <webElementGuid>47391f9a-b508-4af7-ba46-d03ff49ab8ad</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[1]/body[@class=&quot;orders-page&quot;]/main[@class=&quot;content-container&quot;]/div[@class=&quot;table-responsive&quot;]/table[@id=&quot;order-history-table&quot;]/thead[1]/tr[1]/th[1]</value>
+      <webElementGuid>b61fb4f7-f888-4dd1-8642-a3eb554c0b10</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//table[@id='order-history-table']/thead/tr/th</value>
+      <webElementGuid>c8195df9-1b19-4964-9dc3-fa1ce3534872</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Your Order History (Sortable)'])[1]/following::th[1]</value>
+      <webElementGuid>3492d6df-d811-4edf-b856-251d2bd93f66</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='NextGenGadgets'])[1]/following::th[1]</value>
+      <webElementGuid>ee3f47ff-a0d2-48cc-a970-d655dbe2846b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Date Placed'])[1]/preceding::th[1]</value>
+      <webElementGuid>1a79397a-3b5c-4927-9639-6ab625301eb2</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Items'])[1]/preceding::th[2]</value>
+      <webElementGuid>4dfd88fe-8af6-4003-af4d-32765f2b9910</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Order ID']/parent::*</value>
+      <webElementGuid>d19dc796-79ae-4ff1-b065-c4b258481ccd</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//th</value>
+      <webElementGuid>50d0dc8e-d4f4-4419-b363-ea72edd17b2a</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//th[(text() = 'Order ID ' or . = 'Order ID ')]</value>
+      <webElementGuid>d146645d-e1a1-4e25-bf4f-d059b061d36e</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC_K04_Home_HeroBanner_Visibility</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>f1f39d33-eb75-421d-9ec5-4a571ab38eb5</testCaseGuid>
+</TestCaseEntity>

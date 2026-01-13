@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>div_Shipping                    FREE</name>
+   <tag></tag>
+   <elementGuidId>927d4bd9-4f4e-4927-b1da-dcefcd2d09f8</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value></value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>(.//*[normalize-space(text()) and normalize-space(.)='$0.00'])[1]/following::div[1]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>div</value>
+      <webElementGuid>e44b3e15-5723-4c09-936b-6e78fa222498</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>summary-line</value>
+      <webElementGuid>94f4a40e-dfe9-4997-80fc-3bc675aee929</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>
+                    Shipping:
+                    FREE
+                </value>
+      <webElementGuid>2dc4f829-dffa-4135-93a1-7ab6691c6590</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[1]/body[@class=&quot;cart-page&quot;]/main[@class=&quot;content-container&quot;]/div[@class=&quot;cart-content-wrapper&quot;]/div[@class=&quot;cart-summary-section&quot;]/div[@class=&quot;summary-line&quot;]</value>
+      <webElementGuid>4f111f26-0b65-48f1-9172-0b69ca03fb87</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='$0.00'])[1]/following::div[1]</value>
+      <webElementGuid>4ddff734-e6a4-4a39-bdec-62a551955be1</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[2]/div[2]</value>
+      <webElementGuid>2abe3afa-63d4-425c-ac1d-0a2710d5c6de</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//div[(text() = '
+                    Shipping:
+                    FREE
+                ' or . = '
+                    Shipping:
+                    FREE
+                ')]</value>
+      <webElementGuid>e520788a-4fe3-4143-81b1-9f28e010caf8</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>
