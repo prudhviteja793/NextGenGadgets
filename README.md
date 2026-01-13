@@ -68,4 +68,5 @@ As required by the project documentation, here is a comparison of the two tools:
 ## 🚀 How to Run Locally
 1. **Clone the Repo**: `git clone https://github.com/prudhviteja793/NextGenGadgets.git`
 2. **Launch Website**: Open `website/index.html` in any browser.
-3. **Run Automation**: Follow the setup instructions in the `selenium_tests/` or `katalon_tests/` directories.
+3. **Start the Server**: Open a Command Prompt, navigate to `C:\Users\matrix011K\Desktop\NextGenGadgets\website` and run the following command to start a local server: `python -m http.server 8000`
+4. **Run the Selenium Testcase**: Open a new Command Prompt, navigate to `C:\Users\matrix011K\Desktop\NextGenGadgets` and execute all test cases using: `python -m pytest selenium_tests/`
