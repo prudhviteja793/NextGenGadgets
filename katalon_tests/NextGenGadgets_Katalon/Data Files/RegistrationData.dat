@@ -7,7 +7,7 @@
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>25dc500a-77ef-4abf-aaa9-93a579cdf130</dataFileGUID>
-   <dataSourceUrl>C:\Users\matrix011K\Desktop\NextGenGadgets\RegistrationTestData.xlsx</dataSourceUrl>
+   <dataSourceUrl>C:\Users\matrix011K\Desktop\NextGenGadgets\katalon_tests\Data Files\RegistrationTestData.xlsx</dataSourceUrl>
    <driver>ExcelFile</driver>
    <isInternalPath>false</isInternalPath>
    <query></query>
