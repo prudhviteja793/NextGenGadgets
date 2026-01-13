@@ -1,22 +1,27 @@
-<<<<<<< HEAD
+# -----------------------------------------------------
+# Assignment: Final Project
+# Written by: Prudhvi Teja Reddy Kandula (ID: 5805128)
+# Description: Factory class to initialize WebDriver for cross-browser testing.
+# This utility ensures the browser is correctly instantiated for all test suites.
+# -----------------------------------------------------
+
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.firefox.service import Service as FirefoxService
 
 class WebDriverFactory:
     @staticmethod
     def get_driver(browser="chrome"):
-        if browser.lower() == "chrome":
-            return webdriver.Chrome()
-        elif browser.lower() == "firefox":
-            return webdriver.Firefox()
-=======
-from selenium import webdriver
+        """
+        Returns a WebDriver instance based on the requested browser.
+        Defaults to Chrome if the input is unrecognized.
+        """
+        browser_type = browser.lower()
 
-class WebDriverFactory:
-    @staticmethod
-    def get_driver(browser="chrome"):
-        if browser.lower() == "chrome":
+        if browser_type == "chrome":
             return webdriver.Chrome()
-        elif browser.lower() == "firefox":
+        elif browser_type == "firefox":
             return webdriver.Firefox()
->>>>>>> 6c46170 (Syncing local files with repository)
-        return webdriver.Chrome()
+        else:
+            print(f"Browser '{browser}' not supported. Defaulting to Chrome.")
+            return webdriver.Chrome()
