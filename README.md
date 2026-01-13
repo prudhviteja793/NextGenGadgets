@@ -9,8 +9,8 @@ NextGenGadgets is a mock e-commerce platform built to demonstrate advanced autom
 ## 🛠️ Project Structure
 The repository is organized to showcase a clear separation between application code and automation frameworks:
 * **website/**: Source code for the e-commerce site (HTML, CSS, JS).
-* **selenium_tests/**: Python-based automation scripts using the Page Object Model (POM).
-* **katalon_tests/**: Katalon Studio test project containing 25 test cases.
+* **selenium_tests/**: Python-based framework using Page Object Model (POM) and Pytest, featuring automated Excel reporting and dynamic wait handling.
+* **katalon_tests/**: Katalon Studio project containing 25 test cases, including data-driven suites, viewport responsiveness tests, and custom XPATH locators.
 * **results/**: Automation execution reports, Excel results, and screenshots.
 
 ---
