@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - NextGenGadgets</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="background: #f4f7f6; font-family: sans-serif; padding: 20px;">
+    <div style="max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <header style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>Admin Control Panel</h1>
+            <a href="index.html" style="text-decoration: none; color: #007bff;">← Back to Store</a>
+        </header>
+
+        <div style="display: flex; gap: 20px; margin: 20px 0;">
+            <div style="flex: 1; background: #e3f2fd; padding: 20px; border-radius: 8px;">
+                <h3>Total Revenue</h3>
+                <h2 id="rev-text">$0.00</h2>
+            </div>
+            <div style="flex: 1; background: #f1f8e9; padding: 20px; border-radius: 8px;">
+                <h3>Registered Users</h3>
+                <h2 id="user-text">0</h2>
+            </div>
+        </div>
+
+        <h3>Weekly Sales Report</h3>
+        <canvas id="salesChart" width="400" height="200"></canvas>
+
+        <hr style="margin: 40px 0;">
+
+        <h3>Product Management</h3>
+        <div style="display: flex; gap: 10px;">
+            <input type="text" id="p-name" placeholder="Item Name" style="padding: 10px; flex: 2;">
+            <input type="number" id="p-price" placeholder="Price" style="padding: 10px; flex: 1;">
+            <button onclick="addNewProduct()" style="padding: 10px 20px; background: #28a745; color: white; border: none; cursor: pointer;">Add Product</button>
+        </div>
+
+        </p><div style="margin-bottom: 10px;">
+            <button onclick="downloadSalesReport()" style="padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Download Sales Report
+            </button>
+        </div>
+    </div>
+    <script src="scripts/admin.js"></script>
+</body>
+</html>
