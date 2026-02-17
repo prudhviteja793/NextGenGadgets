@@ -85,16 +85,42 @@ function updateCartTotal(action) {
     saveCartToLocal();
 }
 
+async function syncCartWithDB(productId, quantity) {
+    try {
+        await fetch('http://127.0.0.1:5000/api/cart', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                product_id: productId,
+                quantity: quantity
+            })
+        });
+    } catch (error) {
+        console.error("Could not sync cart with database.");
+    }
+}
+
 // --- 3. Product Display and Filtering ---
 
-function renderProducts(filterCategory = 'all', searchTerm = '') {
+async function renderProducts(filterCategory = 'all', searchTerm = '') {
     const grid = document.getElementById('product-grid');
     if (!grid) return;
+
+    // --- NEW: FETCH FROM API ---
+    let displayProducts = products; // Fallback to your static list
+    try {
+        const response = await fetch('http://127.0.0.1:5000/api/products');
+        if (response.ok) {
+            displayProducts = await response.json();
+        }
+    } catch (error) {
+        console.log("Backend offline, using static product list.");
+    }
 
     grid.innerHTML = '';
     const lowerCaseSearchTerm = searchTerm.toLowerCase();
 
-    let filteredProducts = products.filter(p => {
+    let filteredProducts = displayProducts.filter(p => {
         const categoryMatch = filterCategory === 'all' || p.category.toLowerCase() === filterCategory.toLowerCase();
 
         const searchMatch = !searchTerm ||
@@ -629,6 +655,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 updateCartTotal(); // Updates total and saves to local storage
+                syncCartWithDB(productId, 1);
                 alert(`${product.name} added to cart!`);
             }
             // Product Name Click or View Details button
@@ -672,25 +699,44 @@ document.addEventListener('DOMContentLoaded', () => {
     if(document.body.classList.contains('checkout-page')) {
         setupMultiStepForm();
     }
+
+    if (document.body.classList.contains('profile-page')) {
+        loadUserProfileAndOrders();
+    }
 });
 
 // --- 10. Authentication & Security Logic ---
 
-function handleRegistration(event) {
+async function handleRegistration(event) {
     event.preventDefault();
-
+    const username = document.getElementById('reg-username').value;
+    const email = document.getElementById('reg-email').value;
     const password = document.getElementById('reg-password').value;
     const confirmPassword = document.getElementById('reg-confirmPassword').value;
 
-    // Check if passwords match
     if (password !== confirmPassword) {
         alert("Registration Error: Passwords do not match!");
         return false;
     }
 
-    alert("Registration Successful! Redirecting to Login...");
-    window.location.href = 'login.html';
-    return true;
+    // --- NEW: CONNECT TO API ---
+    try {
+        const response = await fetch('http://127.0.0.1:5000/api/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, email, password })
+        });
+
+        if (response.ok) {
+            alert("Registration Successful!");
+            window.location.href = 'login.html';
+        } else {
+            const data = await response.json();
+            alert("Error: " + data.message);
+        }
+    } catch (error) {
+        alert("Server error. Please try again later.");
+    }
 }
 
 function simulateForgotPassword() {
@@ -712,3 +758,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+async function loadUserProfileAndOrders() {
+    const orderContainer = document.getElementById('order-history-list');
+    if (!orderContainer) return;
+
+    try {
+        // 1. Fetch User Info
+        const userResponse = await fetch('http://127.0.0.1:5000/api/user-profile');
+        const userData = await userResponse.json();
+        document.getElementById('prof-username').textContent = userData.username;
+        document.getElementById('prof-email').textContent = userData.email;
+
+        // 2. Fetch Order History
+        const orderResponse = await fetch('http://127.0.0.1:5000/api/orders');
+        const orders = await orderResponse.json();
+
+        if (orders.length === 0) {
+            orderContainer.innerHTML = "<p>You haven't placed any orders yet.</p>";
+        } else {
+            orderContainer.innerHTML = orders.map(order => `
+                <div class="order-item" style="border: 1px solid #ddd; margin: 10px 0; padding: 10px;">
+                    <p><strong>Order ID:</strong> #${order.id}</p>
+                    <p><strong>Date:</strong> ${order.date}</p>
+                    <p><strong>Total:</strong> $${order.total_amount}</p>
+                    <p><strong>Status:</strong> ${order.status}</p>
+                </div>
+            `).join('');
+        }
+    } catch (error) {
+        orderContainer.innerHTML = "<p>Error loading profile. Please ensure you are logged in.</p>";
+    }
+}
