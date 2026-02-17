@@ -763,15 +763,33 @@ async function loadUserProfileAndOrders() {
     const orderContainer = document.getElementById('order-history-list');
     if (!orderContainer) return;
 
+    // 1. Grab the token from the "wallet" (LocalStorage)
+    const token = localStorage.getItem('userToken');
+
     try {
-        // 1. Fetch User Info
-        const userResponse = await fetch('http://127.0.0.1:5000/api/user-profile');
+        // 2. Fetch User Info and SHOW the token to the server
+        const userResponse = await fetch('http://127.0.0.1:5000/api/user-profile', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`, // This "unlocks" the profile
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!userResponse.ok) throw new Error("Unauthorized");
+
         const userData = await userResponse.json();
         document.getElementById('prof-username').textContent = userData.username;
         document.getElementById('prof-email').textContent = userData.email;
 
-        // 2. Fetch Order History
-        const orderResponse = await fetch('http://127.0.0.1:5000/api/orders');
+        // 3. Fetch Order History using the same token
+        const orderResponse = await fetch('http://127.0.0.1:5000/api/orders', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        });
         const orders = await orderResponse.json();
 
         if (orders.length === 0) {
@@ -787,6 +805,45 @@ async function loadUserProfileAndOrders() {
             `).join('');
         }
     } catch (error) {
-        orderContainer.innerHTML = "<p>Error loading profile. Please ensure you are logged in.</p>";
+        // If the token is missing or wrong, show this:
+        orderContainer.innerHTML = "<p>Error: Please log in to view your profile.</p>";
     }
+}
+
+// --- NEW: Handle User Login for Week 4 ---
+async function handleLogin(event) {
+    event.preventDefault(); // Stop page from refreshing
+
+    // Get values from the IDs in your login.html
+    const emailOrUsername = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    try {
+        const response = await fetch('http://127.0.0.1:5000/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: emailOrUsername, password: password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            // SUCCESS: Store the JWT "Token" in LocalStorage
+            localStorage.setItem('userToken', data.token);
+            alert("Login Successful!");
+            window.location.href = 'index.html'; // Redirect to home
+        } else {
+            alert("Login Failed: " + data.message);
+        }
+    } catch (error) {
+        console.error("Connection Error:", error);
+        alert("Backend server is not running. Please start app.py.");
+    }
+}
+
+// Function to "Delete the ID card" and log out
+function logoutUser() {
+    localStorage.removeItem('userToken');
+    alert("You have been logged out.");
+    window.location.href = 'login.html';
 }
