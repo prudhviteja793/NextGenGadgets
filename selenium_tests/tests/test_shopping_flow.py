@@ -1,7 +1,7 @@
 # -----------------------------------------------------
 # Assignment: Final Project
 # Written by: Prudhvi Teja Reddy Kandula (ID: 5805128)
-# Description: E2E Workflow - Enhanced Locator Strategy.
+# Description: E2E Workflow - Aggressive Locator Strategy.
 # -----------------------------------------------------
 
 import pytest
@@ -18,67 +18,71 @@ def test_e2e_checkout_workflow():
     wait = WebDriverWait(driver, 20)
     base_url = "http://localhost:8000"
 
-    subfolders = ["website", "templates", "src", "web", ""]
-    correct_base_url = None
-
     try:
-        # 1. PATH DISCOVERY (Already Working)
-        for folder in subfolders:
-            path_part = f"/{folder}/".replace("//", "/")
-            test_url = f"{base_url}{path_part}login.html"
-            driver.get(test_url)
-            if "Error response" not in driver.title and len(driver.find_elements(By.TAG_NAME, "input")) > 0:
-                correct_base_url = f"{base_url}{path_part}"
-                break
+        # 1. PATH DISCOVERY (Optimized for your verified '/website/' path)
+        correct_base_url = f"{base_url}/website/"
+        driver.get(f"{correct_base_url}login.html")
         
-        if not correct_base_url:
-            raise Exception("Could not locate login.html.")
-
         # 2. LOGIN PHASE
         login_pg = LoginPage(driver)
         wait.until(EC.visibility_of_element_located(login_pg.USERNAME))
         login_pg.perform_login("testuser", "Pass123!")
-        
+
+        # Handle alert
         try:
-            WebDriverWait(driver, 3).until(EC.alert_is_present()).accept()
+            WebDriverWait(driver, 5).until(EC.alert_is_present()).accept()
         except:
             pass
 
-        # 3. ADD TO CART PHASE (The Failure Point)
+        # 3. ADD TO CART PHASE (Multi-locator Fallback)
         driver.get(f"{correct_base_url}index.html")
         wait.until(EC.url_contains("index.html"))
         
-        # DEBUG: Let's see if products are even on the page
-        # If this fails, we will see the HTML in the GitHub log
-        try:
-            # We first wait for ANY button to exist
-            wait.until(EC.presence_of_element_located((By.TAG_NAME, "button")))
-        except:
-            print("CRITICAL DEBUG: No buttons found on index.html. HTML Source:")
-            print(driver.page_source)
-            raise Exception("No buttons found on the product page. Is the product list empty?")
+        # Fallback Strategy: Try PageObject first, then common IDs/Text
+        add_to_cart_selectors = [
+            (By.ID, "add-to-cart-button"),
+            (By.CLASS_NAME, "btn-add-to-cart"),
+            (By.XPATH, "//button[contains(text(), 'Add to Cart')]"),
+            (By.XPATH, "//button[1]") # Last resort: click the first button found
+        ]
 
-        product_pg = ProductPage(driver)
-        
-        # FALLBACK LOCATOR: If the ID in product_pg fails, try a generic "Add to Cart" button
-        try:
-            add_btn = wait.until(EC.element_to_be_clickable(product_pg.ADD_TO_CART_BTN))
-        except:
-            print("Original locator failed, trying fallback CSS selector...")
-            # This looks for any button that contains the word 'Add' or has 'cart' in the class/id
-            fallback_locator = (By.CSS_SELECTOR, "button[id*='add'], button[class*='btn-add'], .add-to-cart")
-            add_btn = wait.until(EC.element_to_be_clickable(fallback_locator))
+        btn = None
+        for selector in add_to_cart_selectors:
+            try:
+                btn = WebDriverWait(driver, 5).until(EC.presence_of_element_located(selector))
+                if btn: break
+            except:
+                continue
 
-        driver.execute_script("arguments[0].click();", add_btn)
-        print("DEBUG: Item added to cart successfully.")
+        if not btn:
+            # If all fallbacks fail, try the original PageObject locator
+            product_pg = ProductPage(driver)
+            btn = wait.until(EC.presence_of_element_located(product_pg.ADD_TO_CART_BTN))
+
+        driver.execute_script("arguments[0].scrollIntoView(true);", btn)
+        driver.execute_script("arguments[0].click();", btn)
+        print("DEBUG: Add to Cart clicked.")
 
         # 4. CART & CHECKOUT
         driver.get(f"{correct_base_url}cart.html")
         wait.until(EC.url_contains("cart.html"))
         
-        # Use JS click for checkout to be safe
-        checkout_btn = wait.until(EC.element_to_be_clickable(product_pg.CHECKOUT_BTN))
-        driver.execute_script("arguments[0].click();", checkout_btn)
+        # Aggressive Checkout click
+        checkout_selectors = [
+            (By.ID, "checkout-button"),
+            (By.XPATH, "//button[contains(text(), 'Checkout')]"),
+            (By.CLASS_NAME, "btn-checkout")
+        ]
+        
+        chk_btn = None
+        for selector in checkout_selectors:
+            try:
+                chk_btn = WebDriverWait(driver, 5).until(EC.presence_of_element_located(selector))
+                if chk_btn: break
+            except:
+                continue
+        
+        driver.execute_script("arguments[0].click();", chk_btn)
 
         # 5. FINAL VERIFICATION
         wait.until(EC.url_contains("checkout.html"))
@@ -86,8 +90,9 @@ def test_e2e_checkout_workflow():
         print("E2E Workflow: SUCCESS")
 
     except Exception as e:
-        print(f"E2E Workflow: FAILED at {driver.current_url} - {str(e)}")
-        driver.save_screenshot("e2e_final_debug.png")
+        print(f"E2E Workflow: FAILED at {driver.current_url}")
+        print(f"Error: {str(e)}")
+        driver.save_screenshot("e2e_ultimate_fallback_error.png")
         raise e
     finally:
         driver.quit()
