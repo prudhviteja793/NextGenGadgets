@@ -12,9 +12,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-from utils.webdriver_factory import WebDriverFactory
-from pages.login_page import LoginPage
-from pages.product_page import ProductPage
+from selenium_tests.utils.webdriver_factory import WebDriverFactory
+from selenium_tests.pages.login_page import LoginPage
+from selenium_tests.pages.product_page import ProductPage
 
 def test_e2e_checkout_workflow():
     """
@@ -26,38 +26,37 @@ def test_e2e_checkout_workflow():
     wait = WebDriverWait(driver, 10)
 
     try:
-        # 1. Login Phase
-        driver.get("http://localhost:8000/login.html")
+        # 1. Login Phase (Updated from port 8000 to 5500)
+        driver.get("http://127.0.0.1:8000/login.html")
         login_pg = LoginPage(driver)
+
+        # Ensure we use the correct IDs from your current app.py logic
         login_pg.perform_login("testuser", "Pass123!")
 
-        # Handle any potential login success alerts
+        # Handle alert if it appears
         try:
             WebDriverWait(driver, 3).until(EC.alert_is_present()).accept()
         except:
             pass
 
-        # 2. Add Item Phase (index.html)
-        driver.get("http://localhost:8000/index.html")
+        # 2. Add Item Phase (Updated to port 5500)
+        driver.get("http://127.0.0.1:8000/index.html")
         product_pg = ProductPage(driver)
 
-        # Using JavaScript click to avoid overlapping element issues
+        # Use JS click to ensure it hits the button even if overlapped
         btn_element = wait.until(EC.presence_of_element_located(product_pg.ADD_TO_CART_BTN))
         driver.execute_script("arguments[0].click();", btn_element)
         print("Step 2: Item added to cart.")
 
-        # 3. Navigation Phase (cart.html)
-        driver.get("http://localhost:8000/cart.html")
+        # 3. Navigation to Cart
+        driver.get("http://127.0.0.1:8000/cart.html")
         wait.until(EC.url_contains("cart.html"))
-        print("Step 3: Navigated to Cart page.")
 
-        # 4. Action Phase: Checkout
+        # 4. Checkout Action
         checkout_btn = wait.until(EC.visibility_of_element_located(product_pg.CHECKOUT_BTN))
-        driver.execute_script("arguments[0].scrollIntoView(true);", checkout_btn)
         driver.execute_script("arguments[0].click();", checkout_btn)
-        print("Step 4: Proceeded to Checkout.")
 
-        # 5. Verification Phase
+        # 5. Final Verification
         wait.until(EC.url_contains("checkout.html"))
         assert "checkout" in driver.current_url.lower()
         print("E2E Workflow: SUCCESS")

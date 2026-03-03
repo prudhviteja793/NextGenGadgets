@@ -5,7 +5,7 @@
 # -----------------------------------------------------
 
 import pytest
-from utils.webdriver_factory import WebDriverFactory
+from selenium_tests.utils.webdriver_factory import WebDriverFactory
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC

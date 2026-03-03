@@ -11,8 +11,8 @@ import os
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-from utils.webdriver_factory import WebDriverFactory
-from pages.login_page import LoginPage
+from selenium_tests.utils.webdriver_factory import WebDriverFactory
+from selenium_tests.pages.login_page import LoginPage
 
 # Global list to store results for the final Excel report
 results_list = []
