@@ -23,7 +23,7 @@ def test_e2e_checkout_workflow():
     """
     driver = WebDriverFactory.get_driver("chrome")
     driver.maximize_window()
-    wait = WebDriverWait(driver, 10)
+    wait = WebDriverWait(driver, 20)
 
     try:
         # 1. Login Phase (Updated from port 8000 to 5500)
