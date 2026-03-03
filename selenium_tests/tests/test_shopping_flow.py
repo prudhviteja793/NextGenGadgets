@@ -1,11 +1,10 @@
 # -----------------------------------------------------
 # Assignment: Final Project
 # Written by: Prudhvi Teja Reddy Kandula (ID: 5805128)
-# Description: Final E2E Workflow with Debugging and Path Fallbacks.
+# Description: E2E Workflow with Automatic Path Discovery.
 # -----------------------------------------------------
 
 import pytest
-import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -19,30 +18,28 @@ def test_e2e_checkout_workflow():
     wait = WebDriverWait(driver, 20)
     base_url = "http://localhost:8000"
 
-    try:
-        # 1. SERVER CHECK & LOGIN
-        # We try the root first, then a common subdirectory as a fallback
-        paths_to_try = ["/login.html", "/templates/login.html"]
-        found = False
-        
-        for path in paths_to_try:
-            driver.get(f"{base_url}{path}")
-            try:
-                # Search for any input field to prove the page loaded
-                WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.TAG_NAME, "input")))
-                found = True
-                break
-            except:
-                continue
-        
-        if not found:
-            print("CRITICAL: Could not find login page. Current Page Source:")
-            print(driver.page_source[:500]) # Log first 500 chars to see the error
-            raise Exception("Login page not reachable at expected paths.")
+    # List of possible subdirectories where your HTML might be
+    # Added 'website' and '' (root) as primary targets
+    subfolders = ["", "website", "templates", "src", "web"]
+    
+    correct_path = None
 
-        login_pg = LoginPage(driver)
+    try:
+        # 1. DISCOVER THE CORRECT URL PATH
+        for folder in subfolders:
+            test_path = f"{base_url}/{folder}/login.html".replace("//", "/")
+            driver.get(test_path)
+            if "Error response" not in driver.title and len(driver.find_elements(By.TAG_NAME, "input")) > 0:
+                correct_path = f"{base_url}/{folder}/".replace("//", "/")
+                print(f"DEBUG: Found valid path at {test_path}")
+                break
         
-        # Perform Login
+        if not correct_path:
+            print(f"CRITICAL: 404 on all attempts. Last Page Source: {driver.page_source[:200]}")
+            raise Exception("Could not locate login.html in any known subdirectory.")
+
+        # 2. LOGIN PHASE
+        login_pg = LoginPage(driver)
         wait.until(EC.visibility_of_element_located(login_pg.USERNAME))
         login_pg.perform_login("testuser", "Pass123!")
 
@@ -52,30 +49,25 @@ def test_e2e_checkout_workflow():
         except:
             pass
 
-        # 2. ADD TO CART
-        # Navigate to index (use the same path logic if necessary)
-        target_index = driver.current_url.replace("login.html", "index.html")
-        driver.get(target_index)
-        
+        # 3. ADD TO CART PHASE
+        driver.get(f"{correct_path}index.html")
         product_pg = ProductPage(driver)
-        btn = wait.until(EC.element_to_be_clickable(product_pg.ADD_TO_CART_BTN))
-        driver.execute_script("arguments[0].click();", btn)
+        add_btn = wait.until(EC.element_to_be_clickable(product_pg.ADD_TO_CART_BTN))
+        driver.execute_script("arguments[0].click();", add_btn)
 
-        # 3. CART & CHECKOUT
-        target_cart = driver.current_url.replace("index.html", "cart.html")
-        driver.get(target_cart)
-        
+        # 4. CART & CHECKOUT
+        driver.get(f"{correct_path}cart.html")
         checkout_btn = wait.until(EC.element_to_be_clickable(product_pg.CHECKOUT_BTN))
         driver.execute_script("arguments[0].click();", checkout_btn)
 
-        # 4. VERIFICATION
+        # 5. FINAL VERIFICATION
         wait.until(EC.url_contains("checkout.html"))
         assert "checkout" in driver.current_url.lower()
         print("E2E Workflow: SUCCESS")
 
     except Exception as e:
         print(f"E2E Workflow: FAILED - {str(e)}")
-        driver.save_screenshot("e2e_final_debug.png")
+        driver.save_screenshot("e2e_path_error.png")
         raise e
     finally:
         driver.quit()
