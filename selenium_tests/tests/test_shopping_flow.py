@@ -1,10 +1,11 @@
 # -----------------------------------------------------
 # Assignment: Final Project
 # Written by: Prudhvi Teja Reddy Kandula (ID: 5805128)
-# Description: Optimized E2E Checkout Workflow with CI/CD Stability Fixes.
+# Description: E2E Workflow with Server-Ready Retry Logic.
 # -----------------------------------------------------
 
 import pytest
+import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -13,65 +14,60 @@ from selenium_tests.pages.login_page import LoginPage
 from selenium_tests.pages.product_page import ProductPage
 
 def test_e2e_checkout_workflow():
-    """
-    Validates the full shopping journey from Login to Checkout.
-    Fulfills the 'E2E Workflow' requirement (40% Grade section).
-    """
-    # 1. Setup Driver
     driver = WebDriverFactory.get_driver("chrome")
     driver.set_window_size(1920, 1080)
-    wait = WebDriverWait(driver, 30) # Increased to 30s for slow CI environments
-    
+    wait = WebDriverWait(driver, 20)
     base_url = "http://localhost:8000"
 
     try:
-        # --- PHASE 1: LOGIN ---
-        driver.get(f"{base_url}/login.html")
-        
-        # Stability: Wait for page to actually render before interacting
-        wait.until(EC.visibility_of_element_located((By.TAG_NAME, "body")))
+        # --- STABILITY FIX: SERVER WARM-UP LOOP ---
+        # Try up to 3 times to get a valid page load
+        for attempt in range(3):
+            driver.get(f"{base_url}/login.html")
+            try:
+                # Use a short wait to check if the field is actually there
+                WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.ID, "username")))
+                break # Found it! exit the loop
+            except:
+                print(f"Attempt {attempt + 1}: Server not ready or blank page. Retrying...")
+                time.sleep(2)
         
         login_pg = LoginPage(driver)
         
-        # Stability: Ensure the specific username field is visible before perform_login
+        # 1. Login Phase
         wait.until(EC.visibility_of_element_located(login_pg.USERNAME))
         login_pg.perform_login("testuser", "Pass123!")
 
-        # Handle alert if it appears
+        # Handle alert
         try:
             WebDriverWait(driver, 5).until(EC.alert_is_present()).accept()
         except:
             pass
 
-        # Ensure login transition is complete
+        # 2. Add Item Phase
         wait.until(lambda d: "login.html" not in d.current_url)
-
-        # --- PHASE 2: ADD TO CART ---
         driver.get(f"{base_url}/index.html")
         product_pg = ProductPage(driver)
 
-        # Use JS click to bypass any overlays or rendering delays
         btn_element = wait.until(EC.element_to_be_clickable(product_pg.ADD_TO_CART_BTN))
         driver.execute_script("arguments[0].click();", btn_element)
-        print("Step 2: Item added to cart.")
 
-        # --- PHASE 3: CHECKOUT ---
+        # 3. Navigation to Cart
         driver.get(f"{base_url}/cart.html")
         wait.until(EC.url_contains("cart.html"))
 
-        # Trigger Checkout
+        # 4. Checkout Action
         checkout_btn = wait.until(EC.element_to_be_clickable(product_pg.CHECKOUT_BTN))
         driver.execute_script("arguments[0].click();", checkout_btn)
 
-        # --- PHASE 4: VERIFICATION ---
+        # 5. Final Verification
         wait.until(EC.url_contains("checkout.html"))
         assert "checkout" in driver.current_url.lower()
         print("E2E Workflow: SUCCESS")
 
     except Exception as e:
         print(f"E2E Workflow: FAILED - {str(e)}")
-        # Save screenshot for GitHub Actions artifacts
-        driver.save_screenshot("e2e_error_debug.png")
+        driver.save_screenshot("final_debug_error.png")
         raise e
     finally:
         driver.quit()
