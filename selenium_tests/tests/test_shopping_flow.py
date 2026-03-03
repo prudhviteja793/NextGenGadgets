@@ -1,7 +1,7 @@
 # -----------------------------------------------------
 # Assignment: Final Project
 # Written by: Prudhvi Teja Reddy Kandula (ID: 5805128)
-# Description: E2E Workflow with Automatic Path Discovery.
+# Description: E2E Workflow - Final URL Formatting Fix.
 # -----------------------------------------------------
 
 import pytest
@@ -18,25 +18,24 @@ def test_e2e_checkout_workflow():
     wait = WebDriverWait(driver, 20)
     base_url = "http://localhost:8000"
 
-    # List of possible subdirectories where your HTML might be
-    # Added 'website' and '' (root) as primary targets
-    subfolders = ["", "website", "templates", "src", "web"]
-    
-    correct_path = None
+    subfolders = ["website", "templates", "src", "web", ""]
+    correct_base_url = None
 
     try:
-        # 1. DISCOVER THE CORRECT URL PATH
+        # 1. PATH DISCOVERY
         for folder in subfolders:
-            test_path = f"{base_url}/{folder}/login.html".replace("//", "/")
-            driver.get(test_path)
+            # Construct URL safely without breaking http://
+            path_part = f"/{folder}/".replace("//", "/")
+            test_url = f"{base_url}{path_part}login.html"
+            
+            driver.get(test_url)
             if "Error response" not in driver.title and len(driver.find_elements(By.TAG_NAME, "input")) > 0:
-                correct_path = f"{base_url}/{folder}/".replace("//", "/")
-                print(f"DEBUG: Found valid path at {test_path}")
+                correct_base_url = f"{base_url}{path_part}"
+                print(f"DEBUG: Confirmed valid base path: {correct_base_url}")
                 break
         
-        if not correct_path:
-            print(f"CRITICAL: 404 on all attempts. Last Page Source: {driver.page_source[:200]}")
-            raise Exception("Could not locate login.html in any known subdirectory.")
+        if not correct_base_url:
+            raise Exception("Could not locate login.html. Check folder structure.")
 
         # 2. LOGIN PHASE
         login_pg = LoginPage(driver)
@@ -50,13 +49,22 @@ def test_e2e_checkout_workflow():
             pass
 
         # 3. ADD TO CART PHASE
-        driver.get(f"{correct_path}index.html")
+        # Ensure we navigate to the absolute URL of index.html
+        product_url = f"{correct_base_url}index.html"
+        driver.get(product_url)
+        
         product_pg = ProductPage(driver)
+        # Verify we are on the right page before clicking
+        wait.until(EC.url_contains("index.html"))
+        
         add_btn = wait.until(EC.element_to_be_clickable(product_pg.ADD_TO_CART_BTN))
         driver.execute_script("arguments[0].click();", add_btn)
+        print("DEBUG: Item added to cart.")
 
         # 4. CART & CHECKOUT
-        driver.get(f"{correct_path}cart.html")
+        driver.get(f"{correct_base_url}cart.html")
+        wait.until(EC.url_contains("cart.html"))
+        
         checkout_btn = wait.until(EC.element_to_be_clickable(product_pg.CHECKOUT_BTN))
         driver.execute_script("arguments[0].click();", checkout_btn)
 
@@ -66,8 +74,8 @@ def test_e2e_checkout_workflow():
         print("E2E Workflow: SUCCESS")
 
     except Exception as e:
-        print(f"E2E Workflow: FAILED - {str(e)}")
-        driver.save_screenshot("e2e_path_error.png")
+        print(f"E2E Workflow: FAILED at {driver.current_url} - {str(e)}")
+        driver.save_screenshot("e2e_final_fix_error.png")
         raise e
     finally:
         driver.quit()
